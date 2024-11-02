@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Health Indicator</title>
+</head>
+<body onload="showDoctorPopup()">
+    <div class="modal" id="doctorModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDoctorPopup()">&times;</span>
+            <h2>Doctor's Instructions</h2>
+            <p>Please provide accurate health information to get a proper analysis.</p>
+        </div>
+    </div>
+
+    <div class="page" id="page1">
+        <h1>Welcome to the Health Indicator</h1>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="age">Age:</label>
+        <input type="number" id="age" required>
+        <button onclick="startHealthCheck()">
+            <i class="fas fa-heartbeat"></i> Start Health Check
+        </button>
+    </div>
+
+    <div class="page hidden" id="page2">
+        <div id="loading" class="loading">
+            <img src="loading.gif" alt="Loading...">
+        </div>
+        <div id="healthForm" class="hidden">
+            <h2>Enter Your Health Indicators</h2>
+            <label for="temperature">Temperature (°F):</label>
+            <input type="number" id="temperature" required>
+            <label for="cholesterol">Cholesterol (mg/dL):</label>
+            <input type="number" id="cholesterol" required>
+            <label for="sugar">Blood Sugar (mg/dL):</label>
+            <input type="number" id="sugar" required>
+            <button onclick="checkHealth()">
+                <i class="fas fa-check"></i> Check Health
+            </button>
+            <button onclick="startOver()">
+                <i class="fas fa-redo"></i> Start Over
+            </button>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
